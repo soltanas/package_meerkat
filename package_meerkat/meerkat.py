@@ -1,13 +1,14 @@
 import types
 
-from inspect import isbuiltin,isfunction,ismethod,ismethoddescriptor
+from inspect import ismodule, isclass, ismethod, isfunction,\
+                    isgeneratorfunction,isgenerator, istraceback,\
+                    isframe, iscode, isbuiltin,isroutine, ismethoddescriptor
 
-def isroutine(object):
-    """Return true if the object is any kind of function or method."""
-    return (isbuiltin(object)
-            or isfunction(object)
-            or ismethod(object)
-            or ismethoddescriptor(object))
+
+print(globals())
+_DICT_OF_TESTS = {(key,value) for (key,value) in globals().items() if key.startswith("is")}
+
+
     
 class Meerkat():
     def __init__(self,main_library) -> None:
