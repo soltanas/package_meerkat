@@ -1,12 +1,8 @@
-import types
-
 from inspect import *
 from collections import defaultdict
 
 
-print(globals())
 _DICT_OF_TESTS = {(key,value) for (key,value) in globals().items() if key.startswith("is")}
-print("dict of test :",_DICT_OF_TESTS)
     
 class Meerkat():
     def __init__(self,main_library, depth_level=1, remove_underscore = True, remove_double_underscore=True) -> None:
@@ -34,19 +30,3 @@ if __name__ == "__main__":
     res = meer.look_in()
     print(res)
     
-old = """
-            if isinstance(attribute_value, (staticmethod, types.BuiltinMethodType)):
-                kind = "static method"
-                obj = attribute_value
-            elif isinstance(attribute_value, (classmethod, types.ClassMethodDescriptorType)):
-                kind = "class method"
-                obj = attribute_value
-            elif isinstance(attribute_value, property):
-                kind = "property"
-                obj = attribute_value
-            elif isroutine(obj):
-                kind = "method"
-            else:
-                kind = "data"
-            print(attribute + " ",kind)
-            """
